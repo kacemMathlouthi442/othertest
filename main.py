@@ -10,7 +10,7 @@ from aiogram.types import ChatMember
 from aiogram.enums.chat_member_status import ChatMemberStatus
 import os
 
-
+app()
 bot = Bot(token=os.environ.get('token'))
 dp = Dispatcher(bot)
 
