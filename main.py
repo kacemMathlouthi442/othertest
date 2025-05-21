@@ -3,14 +3,14 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
-from keepalive import app
+from keepalive import keep_alive
 from aiogram.types import FSInputFile
 from aiogram import Bot
 from aiogram.types import ChatMember
 from aiogram.enums.chat_member_status import ChatMemberStatus
 import os
 
-
+keep_alive()
 bot = Bot(token=os.environ.get('token'))
 dp = Dispatcher()
 
