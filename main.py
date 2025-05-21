@@ -646,17 +646,8 @@ async def handle_vote1(callback: CallbackQuery):
 
 
 
-async def run_bot():
-    await dp.start_polling()
+async def main():
+    await dp.start_polling(bot)
 
-def start_bot():
-    try:
-        loop = asyncio.get_running_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop = asyncio.get_running_loop()
-
-    loop.create_task(run_bot())
-
-start_bot()
+if __name__ == "__main__":
+    asyncio.run(main())
