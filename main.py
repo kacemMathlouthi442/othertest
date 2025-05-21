@@ -12,7 +12,7 @@ import os
 
 
 bot = Bot(token=os.environ.get('token'))
-dp = Dispatcher(bot)
+dp = Dispatcher()
 
 
 
