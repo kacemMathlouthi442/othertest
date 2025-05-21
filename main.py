@@ -10,7 +10,7 @@ from aiogram.types import ChatMember
 from aiogram.enums.chat_member_status import ChatMemberStatus
 import os
 
-app()
+
 bot = Bot(token=os.environ.get('token'))
 dp = Dispatcher(bot)
 
@@ -646,9 +646,17 @@ async def handle_vote1(callback: CallbackQuery):
 
 
 
-# Run bot
-async def main():
-    await dp.start_polling(bot)
+async def run_bot():
+    await dp.start_polling()
 
-if __name__ == "__main__":
-    asyncio.run(main())
+def start_bot():
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_running_loop()
+
+    loop.create_task(run_bot())
+
+start_bot()
